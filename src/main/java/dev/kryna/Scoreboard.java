@@ -23,4 +23,8 @@ public class Scoreboard {
         match.setHomeScore(homeScore);
         match.setAwayScore(awayScore);
     }
+
+    public void finishMatch(Match match) {
+        matches.remove(match);
+    }
 }
