@@ -27,6 +27,6 @@ class ScoreboardTest {
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
         scoreboard.updateScore(match, 1, 0);
         assertEquals(1, match.getHomeScore());
-        assertEquals(0, match.getHomeScore());
+        assertEquals(0, match.getAwayScore());
     }
 }

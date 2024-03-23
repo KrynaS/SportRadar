@@ -16,4 +16,8 @@ public class Scoreboard {
         return match;
     }
 
+    public void updateScore(Match match, int homeScore, int awayScore) {
+        match.setHomeScore(homeScore);
+        match.setAwayScore(awayScore);
+    }
 }
