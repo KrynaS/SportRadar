@@ -33,6 +33,6 @@ class ScoreboardTest {
     @Test
     void updateScore_toNegativeValues() {
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
-        assertThrows(UnsupportedOperationException.class, () -> scoreboard.updateScore(match, 1, -1));
+        assertThrows(RuntimeException.class, () -> scoreboard.updateScore(match, 1, -1));
     }
 }

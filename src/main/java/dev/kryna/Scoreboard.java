@@ -17,6 +17,9 @@ public class Scoreboard {
     }
 
     public void updateScore(Match match, int homeScore, int awayScore) {
+        if(homeScore < 0 || awayScore < 0) {
+            throw new RuntimeException("Scores cannot be negative");
+        }
         match.setHomeScore(homeScore);
         match.setAwayScore(awayScore);
     }
