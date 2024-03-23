@@ -15,7 +15,7 @@ class ScoreboardTest {
     }
 
     @Test
-    void startMatch(){
+    void startMatch() {
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
         assertEquals(1, scoreboard.getMatches().size());
         assertEquals(0, match.getHomeScore());
@@ -23,10 +23,16 @@ class ScoreboardTest {
     }
 
     @Test
-    void updateScore(){
+    void updateScore_toPositiveValues() {
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
         scoreboard.updateScore(match, 1, 0);
         assertEquals(1, match.getHomeScore());
         assertEquals(0, match.getAwayScore());
+    }
+
+    @Test
+    void updateScore_toNegativeValues() {
+        Match match = scoreboard.startMatch("homeTeam", "awayTeam");
+        assertThrows(UnsupportedOperationException.class, () -> scoreboard.updateScore(match, 1, -1));
     }
 }
