@@ -35,4 +35,14 @@ class ScoreboardTest {
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
         assertThrows(RuntimeException.class, () -> scoreboard.updateScore(match, 1, -1));
     }
+
+    @Test
+    void finishMatch() {
+        Match match = scoreboard.startMatch("homeTeam", "awayTeam");
+        Match match2 = scoreboard.startMatch("homeTeam", "awayTeam");
+        assertEquals(2, scoreboard.getMatches().size());
+        scoreboard.finishMatch(match);
+        assertEquals(0, scoreboard.getMatches().size());
+        assertFalse(scoreboard.getMatches().contains(match));
+    }
 }
