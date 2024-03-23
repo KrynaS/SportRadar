@@ -39,10 +39,34 @@ class ScoreboardTest {
     @Test
     void finishMatch() {
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
-        Match match2 = scoreboard.startMatch("homeTeam", "awayTeam");
+        Match match2 = scoreboard.startMatch("homeTeam2", "awayTeam2");
         assertEquals(2, scoreboard.getMatches().size());
         scoreboard.finishMatch(match);
-        assertEquals(0, scoreboard.getMatches().size());
+        assertEquals(1, scoreboard.getMatches().size());
         assertFalse(scoreboard.getMatches().contains(match));
+    }
+
+    @Test
+    void getScores() {
+        Match match1 = scoreboard.startMatch("homeTeam1", "awayTeam1");
+        Match match2 = scoreboard.startMatch("homeTeam2", "awayTeam2");
+        Match match3 = scoreboard.startMatch("homeTeam3", "awayTeam3");
+        Match match4 = scoreboard.startMatch("homeTeam4", "awayTeam4");
+
+        scoreboard.updateScore(match4, 4, 4);
+        scoreboard.updateScore(match3, 2, 2);
+        scoreboard.updateScore(match2, 2, 2);
+        scoreboard.updateScore(match1, 1, 1);
+
+        String summary = scoreboard.getSummary();
+
+        String expectedSummary = """
+                    homeTeam4 4 - awayTeam4 4
+                    homeTeam2 2 - awayTeam2 2
+                    homeTeam3 2 - awayTeam3 2
+                    homeTeam1 1 - awayTeam1 1""";
+
+        assertEquals(expectedSummary, summary);
+
     }
 }
