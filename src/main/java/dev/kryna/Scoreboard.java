@@ -4,9 +4,16 @@ import java.util.ArrayList;
 
 public class Scoreboard {
 
-    ArrayList<Match> matches = new ArrayList<>();
-
-    public void startMatch(String homeTeam, String awayTeam) {
-        matches.add(new Match(homeTeam, awayTeam, 0, 0));
+    public ArrayList<Match> getMatches() {
+        return matches;
     }
+
+    private final ArrayList<Match> matches = new ArrayList<>();
+
+    public Match startMatch(String homeTeam, String awayTeam) {
+        Match match = new Match(homeTeam, awayTeam);
+        matches.add(match);
+        return match;
+    }
+
 }

@@ -6,13 +6,22 @@ public class Match {
 
     private final String homeTeam;
     private final String awayTeam;
+
+    public int getHomeScore() {
+        return homeScore;
+    }
+
+    public int getAwayScore() {
+        return awayScore;
+    }
+
     private int homeScore;
     private int awayScore;
 
-    public Match(String homeTeam, String awayTeam, int homeScore, int awayScore) {
+    public Match(String homeTeam, String awayTeam) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.homeScore = homeScore;
-        this.awayScore = awayScore;
+        this.homeScore = 0;
+        this.awayScore = 0;
     }
 }

@@ -17,10 +17,8 @@ class ScoreboardTest {
     @Test
     void startMatch(){
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
-        assertEquals(1, scoreboard.matches.size());
+        assertEquals(1, scoreboard.getMatches().size());
         assertEquals(0, match.getHomeScore());
         assertEquals(0, match.getAwayScore());
-
     }
-
 }
