@@ -3,13 +3,13 @@ package dev.kryna;
 import java.sql.Timestamp;
 import java.time.Instant;
 
-public class Match implements Comparable<Match>{
+public class Match implements Comparable<Match> {
 
     private final String homeTeam;
     private final String awayTeam;
     private int homeScore;
     private int awayScore;
-    private Timestamp startTime;
+    private final Timestamp startTime;
 
     public Match(String homeTeam, String awayTeam) {
         this.homeTeam = homeTeam;
@@ -49,13 +49,11 @@ public class Match implements Comparable<Match>{
 
     @Override
     public int compareTo(Match m) {
-        if(this.homeScore + this.awayScore > m.homeScore + m.awayScore) {
+        if (this.homeScore + this.awayScore > m.homeScore + m.awayScore) {
             return -1;
-        }
-        else if(this.homeScore + this.awayScore < m.homeScore + m.awayScore) {
+        } else if (this.homeScore + this.awayScore < m.homeScore + m.awayScore) {
             return 1;
-        }
-        else {
+        } else {
             if (this.startTime.before(m.startTime)) {
                 return 1;
             } else if (this.startTime.after(m.startTime)) {

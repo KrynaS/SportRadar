@@ -32,13 +32,13 @@ public class Scoreboard {
     }
 
     private void checkTeamsPlaying(String team1, String team2) {
-        if(teamsPlaying.contains(team1) || teamsPlaying.contains(team2)) {
+        if (teamsPlaying.contains(team1) || teamsPlaying.contains(team2)) {
             throw new RuntimeException("At least one team already playing");
         }
     }
 
     public void updateScore(Match match, int homeScore, int awayScore) {
-        if(homeScore < 0 || awayScore < 0) {
+        if (homeScore < 0 || awayScore < 0) {
             throw new RuntimeException("Scores cannot be negative");
         }
         match.setHomeScore(homeScore);
@@ -53,7 +53,7 @@ public class Scoreboard {
     public String getSummary() {
         StringBuilder sb = new StringBuilder();
         Collections.sort(matches);
-        for(Match m : matches) {
+        for (Match m : matches) {
             sb.append(m.toString());
             sb.append("\n");
         }

@@ -76,10 +76,10 @@ class ScoreboardTest {
         String summary = scoreboard.getSummary();
 
         String expectedSummary = """
-                    homeTeam4 4 - awayTeam4 4
-                    homeTeam3 2 - awayTeam3 2
-                    homeTeam2 2 - awayTeam2 2
-                    homeTeam1 1 - awayTeam1 1""";
+                homeTeam4 4 - awayTeam4 4
+                homeTeam3 2 - awayTeam3 2
+                homeTeam2 2 - awayTeam2 2
+                homeTeam1 1 - awayTeam1 1""";
 
         assertEquals(expectedSummary, summary);
     }
