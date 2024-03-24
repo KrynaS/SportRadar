@@ -27,11 +27,11 @@ public class Match implements Comparable<Match> {
         return awayTeam;
     }
 
-    public void setHomeScore(int homeScore) {
+    void setHomeScore(int homeScore) {
         this.homeScore = homeScore;
     }
 
-    public void setAwayScore(int awayScore) {
+    void setAwayScore(int awayScore) {
         this.awayScore = awayScore;
     }
 

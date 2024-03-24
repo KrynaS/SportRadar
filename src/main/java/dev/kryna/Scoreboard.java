@@ -5,13 +5,13 @@ import java.util.Collections;
 
 public class Scoreboard {
 
-    public ArrayList<Match> getMatches() {
-        return matches;
-    }
-
     private final ArrayList<Match> matches = new ArrayList<>();
 
     private final ArrayList<String> teamsPlaying = new ArrayList<>();
+
+    public int matchesPlayed() {
+        return matches.size();
+    }
 
     public Match startMatch(String homeTeam, String awayTeam) {
         Match match = new Match(homeTeam, awayTeam);

@@ -17,7 +17,7 @@ class ScoreboardTest {
     @Test
     void startMatch() {
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
-        assertEquals(1, scoreboard.getMatches().size());
+        assertEquals(1, scoreboard.matchesPlayed());
         assertEquals(0, match.getHomeScore());
         assertEquals(0, match.getAwayScore());
     }
@@ -26,7 +26,7 @@ class ScoreboardTest {
     void startMatch_addSecondMatchForSameTeam() {
         scoreboard.startMatch("homeTeam", "awayTeam");
         assertThrows(RuntimeException.class, () -> scoreboard.startMatch("homeTeam", "awayTeam2"));
-        assertEquals(1, scoreboard.getMatches().size());
+        assertEquals(1, scoreboard.matchesPlayed());
     }
 
     @Test
@@ -54,10 +54,9 @@ class ScoreboardTest {
     void finishMatch() {
         Match match = scoreboard.startMatch("homeTeam", "awayTeam");
         Match match2 = scoreboard.startMatch("homeTeam2", "awayTeam2");
-        assertEquals(2, scoreboard.getMatches().size());
+        assertEquals(2, scoreboard.matchesPlayed());
         scoreboard.finishMatch(match);
-        assertEquals(1, scoreboard.getMatches().size());
-        assertFalse(scoreboard.getMatches().contains(match));
+        assertEquals(1, scoreboard.matchesPlayed());
     }
 
     @Test
